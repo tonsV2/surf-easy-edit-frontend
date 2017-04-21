@@ -1,10 +1,8 @@
 <template>
-  <div class="list">
+  <div class="editor">
     <h1>New post</h1>
-    <input v-model="title" placeholder="Title"/>
-    <br/>
+    <input v-model="title" placeholder="Title" class="title"/>
     <quill v-model="content" :options="editorOptions">Content...</quill>
-    <br/>
     <button @click="submit()">Submit</button>
   </div>
 </template>
@@ -67,4 +65,12 @@
 
 <style lang="styl">
   @import "~quill/assets/snow"
+
+  .title
+    float left
+
+  .editor
+    margin auto
+    width 80%
+
 </style>
