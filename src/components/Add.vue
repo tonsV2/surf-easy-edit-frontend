@@ -3,7 +3,7 @@
     <h1>New post</h1>
     <input v-model="title" placeholder="Title"/>
     <br/>
-    <quill v-model="content" :options="editorOptions">Content...</quill>
+    <quill :options="editorOptions">{{content}}</quill>
     <br/>
     <button @click="submit()">Submit</button>
   </div>
@@ -35,7 +35,7 @@
     data () {
       return {
         title: null,
-        content: null,
+        content: 'Content...',
         editorOptions: {
           theme: 'snow',
           modules: {
@@ -65,6 +65,6 @@
   }
 </script>
 
-<style lang="styl" scoped>
-  @import "../../node_modules/quill/assets/snow";
+<style lang="styl">
+  @import "~quill/assets/snow"
 </style>

@@ -7,9 +7,9 @@ export default {
     return location.hostname === 'easyedit.surfstation.dk' ? '/api/posts' : 'http://localhost:8080/api/posts'
   },
 
-  getAll () {
+  get () {
     return new Promise((resolve, reject) => {
-      let url = this.getBackendUrl()
+      let url = this.getBackendUrl() + '/all'
       axios.get(url, {headers: auth.getAuthHeader()}).then(response => {
         resolve(response.data)
       }, response => {

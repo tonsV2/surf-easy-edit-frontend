@@ -30,7 +30,7 @@
   export default {
     methods: {
       getAll () {
-        postService.getAll().then(posts => {
+        postService.get().then(posts => {
           this.posts = posts
         })
       },
