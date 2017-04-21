@@ -18,7 +18,7 @@
     "vue-resource": "^1.3.0",
     "element-ui": "^1.0.0",
     "axios": "^0.16.1",
-    "vue-bulma-quill": "^0.0.1",
+    "vue-bulma-quill": "https://github.com/jaybeecave/quill.git",
     "stylus-loader": "^3.0.1",
     "stylus": "^0.54.5"
   },
