@@ -4,12 +4,12 @@ import Router from '../router'
 
 export default {
   getBackendUrl () {
-    return location.hostname === 'easyedit.surfstation.dk' ? '/api/posts' : 'http://localhost:8080/api/posts'
+    return location.hostname === 'easyedit.surfstation.dk' ? 'http://api.easyedit.surfstation.dk/api/posts' : 'http://localhost:8080/api/posts'
   },
 
   get () {
     return new Promise((resolve, reject) => {
-      let url = this.getBackendUrl() + '/all'
+      let url = this.getBackendUrl()
       axios.get(url, {headers: auth.getAuthHeader()}).then(response => {
         resolve(response.data)
       }, response => {

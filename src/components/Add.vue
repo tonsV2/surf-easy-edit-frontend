@@ -3,7 +3,7 @@
     <h1>New post</h1>
     <input v-model="title" placeholder="Title"/>
     <br/>
-    <quill :options="editorOptions">{{content}}</quill>
+    <quill v-model="content" :options="editorOptions">Content...</quill>
     <br/>
     <button @click="submit()">Submit</button>
   </div>
@@ -35,7 +35,7 @@
     data () {
       return {
         title: null,
-        content: 'Content...',
+        content: null,
         editorOptions: {
           theme: 'snow',
           modules: {
