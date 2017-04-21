@@ -1,9 +1,11 @@
 <template>
   <div class="editor">
     <h1>New post</h1>
-    <input v-model="title" placeholder="Title" class="title"/>
+    <div>
+      <input v-model="title" placeholder="Title" class="title"/>
+    </div>
     <quill v-model="content" :options="editorOptions">Content...</quill>
-    <button @click="submit()">Submit</button>
+    <button @click="submit()" class="submit">Submit</button>
   </div>
 </template>
 
@@ -38,23 +40,23 @@
           theme: 'snow',
           modules: {
             toolbar: [
-              ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+              ['bold', 'italic', 'underline', 'strike'],      // toggled buttons
               ['blockquote', 'code-block'],
 
-              [{'header': 1}, {'header': 2}],               // custom button values
+              [{'header': 1}, {'header': 2}],                 // custom button values
               [{'list': 'ordered'}, {'list': 'bullet'}],
-              [{'script': 'sub'}, {'script': 'super'}],      // superscript/subscript
-              [{'indent': '-1'}, {'indent': '+1'}],          // outdent/indent
+              [{'script': 'sub'}, {'script': 'super'}],       // superscript/subscript
+              [{'indent': '-1'}, {'indent': '+1'}],           // outdent/indent
               [{'direction': 'rtl'}],                         // text direction
 
               [{'size': ['small', false, 'large', 'huge']}],  // custom dropdown
               [{'header': [1, 2, 3, 4, 5, 6, false]}],
 
-              [{'color': []}, {'background': []}],          // dropdown with defaults from theme
+              [{'color': []}, {'background': []}],            // dropdown with defaults from theme
               [{'font': []}],
               [{'align': []}],
 
-              ['clean']                                         // remove formatting button
+              ['clean']                                       // remove formatting button
             ]
           }
         }
@@ -66,8 +68,9 @@
 <style lang="styl">
   @import "~quill/assets/snow"
 
-  .title
+  .title, .submit
     float left
+    margin 10px 0px 10px 0px
 
   .editor
     margin auto
