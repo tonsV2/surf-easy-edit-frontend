@@ -16,12 +16,8 @@
 </template>
 
 <script>
-  import Vue from 'vue'
   import auth from '../auth'
   import Router from '../router'
-  import VueResource from 'vue-resource'
-
-  Vue.use(VueResource)
 
   export default {
     data () {
@@ -33,13 +29,10 @@
         error: ''
       }
     },
+
     methods: {
       submit () {
-        const credentials = {
-          username: this.credentials.username,
-          password: this.credentials.password
-        }
-        auth.login(this, credentials)
+        auth.login(this.credentials.username, this.credentials.password)
         Router.go(-1)
       }
     }

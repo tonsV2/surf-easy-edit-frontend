@@ -1,3 +1,4 @@
+import axios from 'axios'
 import Router from '../router'
 
 const LOGIN_URL = location.hostname === 'easyedit.surfstation.dk' ? '/oauth/token' : 'http://localhost:8080/oauth/token'
@@ -9,13 +10,13 @@ export default {
     authenticated: false
   },
 
-  login (context, credentials, redirect) {
+  login (username, password, redirect) {
     const params = {
       'client_id': 'html5',
       'client_secret': 'password',
       'grant_type': 'password',
-      'username': credentials.username,
-      'password': credentials.password
+      'username': username,
+      'password': password
     }
 
     const headers = {
@@ -23,7 +24,7 @@ export default {
       'Content-Type': 'application/x-www-form-urlencoded'
     }
 
-    const body = Object.keys(params).map((key) => {
+    const data = Object.keys(params).map((key) => {
       return encodeURIComponent(key) + '=' + encodeURIComponent(params[key])
     }).join('&')
 
@@ -31,11 +32,12 @@ export default {
       url: LOGIN_URL,
       method: 'POST',
       headers: headers,
-      body: body
+      data: data
     }
 
-    context.$http(req).then((response) => {
-      localStorage.setItem(this.storageKey, response.body.access_token)
+    axios(req).then((response) => {
+      console.log(response)
+      localStorage.setItem(this.storageKey, response.data.access_token)
       this.user.authenticated = true
       if (redirect) {
         Router.go(redirect)
