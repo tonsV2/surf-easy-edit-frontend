@@ -11,7 +11,7 @@ export default {
       axios.get(url).then(response => {
         resolve(response.data)
       }, response => {
-//        this.handleError(response)
+        this.handleError(response)
       })
     })
   },
