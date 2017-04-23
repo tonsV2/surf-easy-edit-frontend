@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <img src="./assets/logo.png">
+<!--
     <router-link to="/">
       <img src="./assets/logo.png">
     </router-link>
@@ -9,6 +11,7 @@
       <router-link to="/login" v-if="!authenticated">Login</router-link>
       <router-link to="/logout" v-if="authenticated">Logout</router-link>
     </div>
+-->
     <router-view></router-view>
   </div>
 </template>
