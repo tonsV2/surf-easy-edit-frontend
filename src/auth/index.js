@@ -1,7 +1,7 @@
 import axios from 'axios'
 import Router from '../router'
 
-const LOGIN_URL = location.hostname === 'easyedit.surfstation.dk' ? '/oauth/token' : 'http://localhost:8080/oauth/token'
+const LOGIN_URL = location.hostname === 'easyedit.surfstation.dk' ? 'http://easyedit.surfstation.dk/oauth/token' : 'http://localhost:8080/oauth/token'
 
 export default {
   storageKey: 'access_token',
