@@ -1,6 +1,6 @@
 <template>
   <div class="editor">
-    <h1>Post content</h1>
+    <h1>Digital signage content</h1>
     <textarea v-model="content" class="content"></textarea>
     <button @click="submit()" class="submit">Submit</button>
   </div>
