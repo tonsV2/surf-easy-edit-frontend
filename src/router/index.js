@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Users from '@/components/Users'
 import Edit from '@/components/Edit'
 import Add from '@/components/Add'
 import List from '@/components/List'
@@ -9,6 +10,11 @@ import Logout from '@/components/Logout'
 Vue.use(Router)
 
 let routes = [
+  {
+    path: '/users',
+    name: 'Users',
+    component: Users
+  },
   {
     path: '/edit',
     name: 'Edit',
