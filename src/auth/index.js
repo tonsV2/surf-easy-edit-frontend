@@ -11,16 +11,19 @@ export default {
   },
 
   login (username, password, redirect) {
+    const auth = {
+      client_id: 'html5',
+      client_secret: 'password'
+    }
+
     const params = {
-      'client_id': 'html5',
-      'client_secret': 'password',
       'grant_type': 'password',
       'username': username,
       'password': password
     }
 
     const headers = {
-      Authorization: 'Basic ' + btoa(params.client_id + ':' + params.client_secret),
+      Authorization: 'Basic ' + btoa(auth.client_id + ':' + auth.client_secret),
       'Content-Type': 'application/x-www-form-urlencoded'
     }
 
