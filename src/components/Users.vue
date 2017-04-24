@@ -1,22 +1,25 @@
 <template>
   <div class="users">
     <h1>Users</h1>
-    <table border="1">
-      <tr v-for="user in users">
-        <td>{{user.username}}</td>
-        <td>
-          <ul>
-            <li v-for="url in user.urls">
+    <md-list>
+      <md-list-item v-for="user in users">
+        <span>{{user.username}}</span>
+        <md-list-expand>
+          <md-list>
+            <md-list-item class="md-inset" v-for="url in user.urls">
               <a :href="url">{{url}}</a>
-            </li>
-          </ul>
-        </td>
-      </tr>
-    </table>
+            </md-list-item>
+          </md-list>
+        </md-list-expand>
+      </md-list-item>
+    </md-list>
   </div>
 </template>
 
 <script>
+import VueMaterial from 'vue-material'
+import 'vue-material/dist/vue-material.css'
+
 import userService from '../services/UserService'
 
 export default {
@@ -39,6 +42,10 @@ export default {
         }
       })
     }
+  },
+
+  components: {
+    VueMaterial
   },
 
   mounted () {

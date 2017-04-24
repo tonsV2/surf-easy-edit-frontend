@@ -18,9 +18,6 @@ export default {
     }
   },
 
-  components: {
-  },
-
   mounted () {
     editService.loadEdit(this.$route.query.id).then(content => {
       this.content = content
