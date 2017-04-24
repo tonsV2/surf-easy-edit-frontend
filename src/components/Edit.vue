@@ -13,8 +13,6 @@ export default {
   methods: {
     submit () {
       editService.saveEdit(this.$route.query.id, this.content).then(content => {
-        // TODO: Show that post was saved
-//        console.log(content)
         this.content = content
       })
     }
@@ -25,7 +23,6 @@ export default {
 
   mounted () {
     editService.loadEdit(this.$route.query.id).then(content => {
-      console.log(content)
       this.content = content
     })
   },
@@ -38,17 +35,15 @@ export default {
 }
 </script>
 
-<style lang="styl">
+<style scoped lang="styl">
+.content
+  width 600px
+  height 200px
+.title, .submit
+  float left
+  margin 10px 0px 10px 0px
 
-  .content
-    width 600px
-    height 200px
-  .title, .submit
-    float left
-    margin 10px 0px 10px 0px
-
-  .editor
-    margin auto
-    width 80%
-
+.editor
+  margin auto
+  width 80%
 </style>
