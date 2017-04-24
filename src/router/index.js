@@ -5,7 +5,6 @@ import Edit from '@/components/Edit'
 import Add from '@/components/Add'
 import List from '@/components/List'
 import Login from '@/components/Login'
-import Logout from '@/components/Logout'
 
 Vue.use(Router)
 
@@ -34,11 +33,6 @@ let routes = [
     path: '/login',
     name: 'Login',
     component: Login
-  },
-  {
-    path: '/logout',
-    name: 'Logout',
-    component: Logout
   },
   {
     path: '*',
