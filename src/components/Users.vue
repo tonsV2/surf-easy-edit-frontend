@@ -2,11 +2,11 @@
   <div class="users">
     <h1>Users</h1>
     <md-list>
-      <md-list-item v-for="user in users">
+      <md-list-item v-for="user in users" :key="user.username">
         <span>{{user.username}}</span>
         <md-list-expand>
           <md-list>
-            <md-list-item class="md-inset" v-for="url in user.urls">
+            <md-list-item class="md-inset" v-for="url in user.urls" :key="url">
               <a :href="url">{{url}}</a>
             </md-list-item>
           </md-list>
@@ -17,10 +17,13 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.css'
 
 import userService from '../services/UserService'
+
+Vue.use(VueMaterial)
 
 export default {
   methods: {
@@ -42,10 +45,6 @@ export default {
         }
       })
     }
-  },
-
-  components: {
-    VueMaterial
   },
 
   mounted () {

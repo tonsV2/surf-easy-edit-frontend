@@ -17,8 +17,6 @@ export default {
   },
 
   saveEdit (editId, content) {
-    console.log(editId)
-    console.log(content)
     return new Promise((resolve, reject) => {
       let url = this.getBackendUrl() + editId
       let req = {
