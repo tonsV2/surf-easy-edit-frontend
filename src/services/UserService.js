@@ -1,8 +1,9 @@
 import axios from 'axios'
+import config from '../config'
 
 export default {
   getBackendUrl () {
-    return location.hostname === 'easyedit.surfstation.dk' ? 'http://easyedit.surfstation.dk/api/users' : 'http://localhost:8080/api/users'
+    return config.getUrl('api') + '/users'
   },
 
   getAll () {

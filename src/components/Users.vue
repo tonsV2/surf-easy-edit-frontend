@@ -20,7 +20,7 @@
 import Vue from 'vue'
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.css'
-
+import config from '../config'
 import userService from '../services/UserService'
 
 Vue.use(VueMaterial)
@@ -29,15 +29,15 @@ export default {
   methods: {
     getAll () {
       userService.getAll().then(users => {
-        let apiUrl = 'http://localhost:8080'
         for (let user of users) {
+          let apiUrl = config.getUrl('api')
           let urls = [
-            apiUrl + '/api/posts/latest?username=' + user.username,
-            apiUrl + '/api/posts/latest/content?username=' + user.username,
-            apiUrl + '/api/posts/latest/title?username=' + user.username,
+            apiUrl + '/posts/latest?username=' + user.username,
+            apiUrl + '/posts/latest/content?username=' + user.username,
+            apiUrl + '/posts/latest/title?username=' + user.username,
 
-            apiUrl + '/api/feed?username=' + user.username,
-            apiUrl + '/api/feed/latest?username=' + user.username,
+            apiUrl + '/feed?username=' + user.username,
+            apiUrl + '/feed/latest?username=' + user.username,
 
             '/#/edit?id=' + user.editId
           ]
