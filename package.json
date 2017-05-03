@@ -17,6 +17,7 @@
     "vue-router": "^2.2.0",
     "vue-material": "^0.7.1",
     "element-ui": "^1.0.0",
+    "vue-toasted": "^1.0.27",
     "axios": "^0.16.1",
     "vue-bulma-quill": "https://github.com/jaybeecave/quill.git",
     "stylus-loader": "^3.0.1",
