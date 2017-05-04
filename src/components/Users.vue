@@ -39,7 +39,7 @@ export default {
             apiUrl + '/feed?username=' + user.username,
             apiUrl + '/feed/latest?username=' + user.username,
 
-            '/#/edit?id=' + user.editId
+            apiUrl + '/#/edit?id=' + user.editId
           ]
           this.users.push({username: user.username, urls})
         }
