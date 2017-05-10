@@ -29,9 +29,9 @@ export default {
   methods: {
     getAll () {
       userService.getAll().then(users => {
+        let apiUrl = config.getUrl('api')
+        let baseUrl = config.getUrl('base')
         for (let user of users) {
-          let apiUrl = config.getUrl('api')
-          let baseUrl = config.getUrl('base')
           let urls = [
             apiUrl + '/posts/latest?username=' + user.username,
             apiUrl + '/posts/latest/content?username=' + user.username,
