@@ -31,6 +31,7 @@ export default {
       userService.getAll().then(users => {
         for (let user of users) {
           let apiUrl = config.getUrl('api')
+          let baseUrl = config.getUrl('base')
           let urls = [
             apiUrl + '/posts/latest?username=' + user.username,
             apiUrl + '/posts/latest/content?username=' + user.username,
@@ -39,7 +40,7 @@ export default {
             apiUrl + '/feed?username=' + user.username,
             apiUrl + '/feed/latest?username=' + user.username,
 
-            location.origin + '/#/edit?id=' + user.editId
+            baseUrl + '/#/edit?id=' + user.editId
           ]
           this.users.push({username: user.username, urls})
         }
