@@ -1,0 +1,39 @@
+version: '2'
+
+services:
+  frontend:
+    image: 127.0.0.1:5000/surf-easyedit-frontend
+    build: .
+    container_name: surf-easyedit-frontend
+    ports:
+      - 80:80
+    expose:
+      - 80
+
+  backend:
+    image: 127.0.0.1:5000/surf-easyedit-backend
+#    build: /home/tons/IdeaProjects/surf-easy-edit-backend/src/main/docker
+    build:
+      context: /home/tons/IdeaProjects/surf-easy-edit-backend
+      dockerfile: src/main/docker/Dockerfile
+    container_name: surf-easyedit-backend
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+
+    ports:
+      - 8080:80
+#    expose:
+#      - 80:8080
+
+  db:
+    image: postgres:9.6-alpine
+    container_name: surf-easyedit-db
+    environment:
+      - POSTGRES_USER=easyedit
+      - POSTGRES_PASSWORD=easyedit
+      - POSTGRES_DB=easyedit
+    volumes:
+      - surf-easyedit-db:/var/lib/postgresql/data
+
+volumes:
+  surf-easyedit-db:
