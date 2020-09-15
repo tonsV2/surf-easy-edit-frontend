@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  dev:
+    image: node:14.10.1-alpine3.11
+    volumes:
+      - .:/src
+    working_dir: /src
+    command: /bin/sh -c 'apk --no-cache add git && npm install && exec npm run dev'
+    ports:
+      - 3000:3000
+    stdin_open: true
+    tty: true
