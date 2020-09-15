@@ -22,7 +22,7 @@ export default {
       let url = this.getBackendUrl() + editId
       let req = {
         url,
-        method: 'PUT',
+        method: 'POST',
         data: content
       }
       axios(req).then(response => {
